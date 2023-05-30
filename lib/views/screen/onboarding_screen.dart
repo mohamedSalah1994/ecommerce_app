@@ -11,7 +11,8 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(OnboardingController());
+    Get.put(OnboardingControllerImp());
+    
     return SafeArea(
       child: Scaffold(
         body: Column(
