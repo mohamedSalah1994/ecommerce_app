@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/core/constant/routes.dart';
+import 'package:ecommerce_app/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,8 +14,12 @@ class OnboardingControllerImp extends OnboardingController {
   @override
   nextPage() {
     currentPage++;
-    pageController.animateToPage(currentPage,
-        duration: const Duration(milliseconds: 700), curve: Curves.easeInOut);
+    if (currentPage > onBoardingList.length - 1) {
+      Get.offAllNamed(AppRoutes.login);
+    } else {
+      pageController.animateToPage(currentPage,
+          duration: const Duration(milliseconds: 700), curve: Curves.easeInOut);
+    }
   }
 
   @override
@@ -24,7 +30,6 @@ class OnboardingControllerImp extends OnboardingController {
 
   @override
   void onInit() {
-   
     super.onInit();
     pageController = PageController();
   }
