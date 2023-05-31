@@ -1,11 +1,16 @@
 import 'package:ecommerce_app/core/constant/color.dart';
+import 'package:ecommerce_app/core/localization/translation.dart';
+import 'package:ecommerce_app/core/services/services.dart';
 import 'package:ecommerce_app/routes.dart';
+import 'package:ecommerce_app/views/screen/language/language_screen.dart';
 import 'package:ecommerce_app/views/screen/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await initialServices();
 }
 
 class MyApp extends StatelessWidget {
@@ -16,23 +21,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      translations: MyTranslation(),
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'PlayfairDisplay',
-        textTheme:  TextTheme(
-          displayLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 18 , color: AppColor.black),
-          bodyLarge: TextStyle(height: 2, color: AppColor.grey),     
+        textTheme: TextTheme(
+          displayLarge: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 18, color: AppColor.black),
+          bodyLarge: TextStyle(height: 2, color: AppColor.grey),
         ),
         primarySwatch: Colors.blue,
       ),
-      home: const OnBoardingScreen(),
+      home: const LanguageScreen(),
       routes: routes,
     );
   }
 }
-
-
-
-
-  
-
