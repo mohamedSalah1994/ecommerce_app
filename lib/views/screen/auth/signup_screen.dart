@@ -38,42 +38,39 @@ class SignUpScreen extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 25),
                 child: const CustomTextBodyAuth(
                   bodyText:
-                      'Sign In with your email and password or continue with social media',
+                      'Sign Up with your email and password or continue with social media',
                 )),
             const SizedBox(
               height: 65,
             ),
-             CustomTextFormAuth(
+            CustomTextFormAuth(
               labelText: 'User Name',
               hintText: 'Enter Your User Name',
               icon: Icons.person_outlined,
               myController: controller.username,
             ),
-             CustomTextFormAuth(
+            CustomTextFormAuth(
               labelText: 'Email',
               hintText: 'Enter Your Email',
               icon: Icons.email_outlined,
               myController: controller.email,
             ),
-             CustomTextFormAuth(
+            CustomTextFormAuth(
               labelText: 'Phone',
               hintText: 'Enter Your Phone',
               icon: Icons.phone_android_outlined,
               myController: controller.phone,
             ),
-             CustomTextFormAuth(
+            CustomTextFormAuth(
               labelText: 'Password',
               hintText: 'Enter Your Password',
               icon: Icons.lock_outline,
               myController: controller.password,
             ),
-            Text('Forget Password',
-                style: Theme.of(context).textTheme.bodySmall,
-                textAlign: TextAlign.end),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 15),
               child: CustomButtonAuth(
-                text: 'Sign In',
+                text: 'Sign Up',
                 onPressed: () {},
               ),
             ),
