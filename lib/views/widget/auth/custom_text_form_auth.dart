@@ -15,28 +15,32 @@ class CustomTextFormAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 30),
+      margin: const EdgeInsets.only(bottom: 25),
       child: TextFormField(
         decoration: InputDecoration(
-          
             floatingLabelBehavior: FloatingLabelBehavior.always,
             label: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Text(labelText , style: TextStyle(color: AppColor.grey),),
+              child: Text(
+                labelText,
+                style: TextStyle(color: AppColor.grey),
+              ),
             ),
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.bodySmall,
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-            suffixIcon: Icon(icon , color: AppColor.primaryColor,),
-                            focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(32),
-                  borderSide:  BorderSide(
-                    color: AppColor.primaryColor,
-                  ),
-                ),
+            suffixIcon: Icon(
+              icon,
+              color: AppColor.primaryColor,
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32),
+              borderSide: BorderSide(
+                color: AppColor.primaryColor,
+              ),
+            ),
             enabledBorder: OutlineInputBorder(
-              
               borderRadius: BorderRadius.circular(32),
             )),
       ),

@@ -57,9 +57,24 @@ class LoginScreen extends StatelessWidget {
               labelText: 'Password',
               hintText: 'Enter Your Password',
               icon: Icons.lock_outline,
-            ),
+            ), 
 
-             CustomButtonAuth(text: 'Sign In' ,onPressed: (){},)
+             Text('Forget Password' , style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.end),
+
+             Padding(
+               padding: const EdgeInsets.symmetric(vertical: 15),
+               child: CustomButtonAuth(text: 'Sign In' ,onPressed: (){},),
+             ),
+             Padding(
+               padding: const EdgeInsets.only(top: 20),
+               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Don't have an account ? "),
+                   InkWell(child: Text('Sign Up' , style: TextStyle(color: AppColor.primaryColor),),)
+                ],
+               ),
+             )
           ],
         ),
       ),
