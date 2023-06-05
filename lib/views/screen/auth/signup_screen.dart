@@ -1,25 +1,25 @@
-import 'package:ecommerce_app/controllers/auth/login_controller.dart';
+import 'package:ecommerce_app/controllers/auth/signup_controller.dart';
 import 'package:ecommerce_app/views/widget/auth/custom_auth_appbar.dart';
-import 'package:ecommerce_app/views/widget/auth/custom_button_auth.dart';
-import 'package:ecommerce_app/views/widget/auth/custom_login_signup_text.dart';
-import 'package:ecommerce_app/views/widget/auth/custom_text_body_auth.dart';
-import 'package:ecommerce_app/views/widget/auth/custom_text_form_auth.dart';
-import 'package:ecommerce_app/views/widget/auth/custom_text_title_auth.dart';
-import 'package:ecommerce_app/views/widget/auth/logo_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+import '../../widget/auth/custom_button_auth.dart';
+import '../../widget/auth/custom_login_signup_text.dart';
+import '../../widget/auth/custom_text_body_auth.dart';
+import '../../widget/auth/custom_text_form_auth.dart';
+import '../../widget/auth/custom_text_title_auth.dart';
+
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp controller = Get.put(LoginControllerImp());
+    SignUpControllerImp controller = Get.put(SignUpControllerImp());
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(55),
         child: CustomAuthAppBar(
-          titleText: 'Sign In',
+          titleText: 'Sign Up',
         ),
       ),
       body: Container(
@@ -29,10 +29,6 @@ class LoginScreen extends StatelessWidget {
           children: [
             const SizedBox(
               height: 30,
-            ),
-            const SizedBox(
-              height: 170,
-              child: LogoAuth(),
             ),
             const CustomTextTitleAuth(titleText: 'Welcome Back'),
             const SizedBox(
@@ -48,15 +44,28 @@ class LoginScreen extends StatelessWidget {
               height: 65,
             ),
              CustomTextFormAuth(
+              labelText: 'User Name',
+              hintText: 'Enter Your User Name',
+              icon: Icons.person_outlined,
+              myController: controller.username,
+            ),
+             CustomTextFormAuth(
               labelText: 'Email',
               hintText: 'Enter Your Email',
               icon: Icons.email_outlined,
               myController: controller.email,
             ),
-            const CustomTextFormAuth(
+             CustomTextFormAuth(
+              labelText: 'Phone',
+              hintText: 'Enter Your Phone',
+              icon: Icons.phone_android_outlined,
+              myController: controller.phone,
+            ),
+             CustomTextFormAuth(
               labelText: 'Password',
               hintText: 'Enter Your Password',
               icon: Icons.lock_outline,
+              myController: controller.password,
             ),
             Text('Forget Password',
                 style: Theme.of(context).textTheme.bodySmall,
@@ -71,10 +80,10 @@ class LoginScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: CustomLoginOrSignUpText(
-                text1: "Don't have an account ? ",
-                text2: ' Sign Up',
+                text1: " have an account ? ",
+                text2: ' Login',
                 onTap: () {
-                  controller.goToSignUp();
+                  controller.goToLogin();
                 },
               ),
             ),
