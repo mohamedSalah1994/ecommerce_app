@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/constant/color.dart';
+import '../../../core/constant/app_colors.dart';
 
 class CustomLoginOrSignUpText extends StatelessWidget {
-  const CustomLoginOrSignUpText({super.key, required this.text1, required this.text2, this.onTap});
+  const CustomLoginOrSignUpText(
+      {super.key, required this.text1, required this.text2, this.onTap});
   final String text1;
   final String text2;
   final void Function()? onTap;
@@ -12,13 +13,13 @@ class CustomLoginOrSignUpText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-         Text(text1),
+        Text(text1),
         InkWell(
           onTap: onTap,
           child: Text(
             text2,
             style: TextStyle(
-                color: AppColor.primaryColor, fontWeight: FontWeight.bold),
+                color: AppColors.primaryColor, fontWeight: FontWeight.bold),
           ),
         )
       ],

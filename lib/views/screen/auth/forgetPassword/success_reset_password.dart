@@ -1,10 +1,9 @@
-import 'package:ecommerce_app/core/constant/color.dart';
+import 'package:ecommerce_app/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../widget/auth/custom_auth_appbar.dart';
 import '../../../widget/auth/custom_button_auth.dart';
 import '../../../widget/auth/custom_text_title_auth.dart';
-
 
 class SuccessResetPassword extends StatelessWidget {
   const SuccessResetPassword({super.key});
@@ -26,7 +25,7 @@ class SuccessResetPassword extends StatelessWidget {
               Icon(
                 Icons.check_circle_outline,
                 size: 200,
-                color: AppColor.primaryColor,
+                color: AppColors.primaryColor,
               ),
               const CustomTextTitleAuth(titleText: 'Success Reset Password'),
               const Spacer(),
@@ -37,7 +36,9 @@ class SuccessResetPassword extends StatelessWidget {
                   onPressed: () {},
                 ),
               ),
-              const SizedBox(height: 20,)
+              const SizedBox(
+                height: 20,
+              )
             ],
           ),
         ),

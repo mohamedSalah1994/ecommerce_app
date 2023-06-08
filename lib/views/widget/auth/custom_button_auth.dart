@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/core/constant/color.dart';
+import 'package:ecommerce_app/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonAuth extends StatelessWidget {
@@ -9,13 +9,14 @@ class CustomButtonAuth extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onPressed,
-      color: AppColor.primaryColor,
+      color: AppColors.primaryColor,
       textColor: Colors.white,
       padding: const EdgeInsets.symmetric(vertical: 15),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(32)
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+      child: Text(
+        text,
+        style: const TextStyle(fontWeight: FontWeight.bold),
       ),
-      child: Text(text , style: const TextStyle(fontWeight: FontWeight.bold),),
     );
   }
 }

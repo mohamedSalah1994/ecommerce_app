@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../../../core/constant/color.dart';
+import '../../../core/constant/app_colors.dart';
 import '../../widget/auth/custom_auth_appbar.dart';
 import '../../widget/auth/custom_button_auth.dart';
 import '../../widget/auth/custom_text_title_auth.dart';
-
 
 class SuccessSignUp extends StatelessWidget {
   const SuccessSignUp({super.key});
@@ -26,7 +24,7 @@ class SuccessSignUp extends StatelessWidget {
               Icon(
                 Icons.check_circle_outline,
                 size: 200,
-                color: AppColor.primaryColor,
+                color: AppColors.primaryColor,
               ),
               const CustomTextTitleAuth(titleText: 'Success Sign up'),
               const Spacer(),
@@ -37,7 +35,9 @@ class SuccessSignUp extends StatelessWidget {
                   onPressed: () {},
                 ),
               ),
-              const SizedBox(height: 20,)
+              const SizedBox(
+                height: 20,
+              )
             ],
           ),
         ),

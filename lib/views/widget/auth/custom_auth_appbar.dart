@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-
-import '../../../core/constant/color.dart';
+import '../../../core/constant/app_colors.dart';
 
 class CustomAuthAppBar extends StatelessWidget {
   const CustomAuthAppBar({super.key, required this.titleText});
@@ -9,8 +8,8 @@ class CustomAuthAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: BackButton(color: AppColor.grey),
-      backgroundColor: AppColor.backgroundcolor,
+      leading: BackButton(color: AppColors.grey),
+      backgroundColor: AppColors.backgroundcolor,
       elevation: 0.0,
       centerTitle: true,
       title: Text(
@@ -18,7 +17,7 @@ class CustomAuthAppBar extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .bodyLarge
-            ?.copyWith(color: AppColor.grey),
+            ?.copyWith(color: AppColors.grey),
       ),
     );
   }

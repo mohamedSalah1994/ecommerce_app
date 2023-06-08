@@ -2,7 +2,7 @@ import 'package:ecommerce_app/controllers/onboarding_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/constant/color.dart';
+import '../../../core/constant/app_colors.dart';
 
 class CustomButtonOnboarding extends GetView<OnboardingControllerImp> {
   const CustomButtonOnboarding({super.key});
@@ -14,15 +14,15 @@ class CustomButtonOnboarding extends GetView<OnboardingControllerImp> {
         controller.nextPage();
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColor.primaryColor,
+        backgroundColor: AppColors.primaryColor,
         padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
       ),
-      child: const Text(
-        'Continue',
-        style: TextStyle(fontSize: 16),
+      child:  Text(
+        '8'.tr,
+        style: const TextStyle(fontSize: 16),
       ),
     );
   }

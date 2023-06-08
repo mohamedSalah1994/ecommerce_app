@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/constant/image_asset.dart';
 import 'package:ecommerce_app/data/model/onboarding_model.dart';
+import 'package:get/get.dart';
 
 
 
@@ -7,27 +8,22 @@ import 'package:ecommerce_app/data/model/onboarding_model.dart';
 
 List<OnboardingModel> onBoardingList = [
   OnboardingModel(
-    title: 'Choose Product',
+    title: '2'.tr,
     body:
-        "We Have a 100k Product , Choose \n Your Product From  Our \n E-commerce Shop",
+        "3".tr,
     image: AppImageAsset.onBoardingImageOne,
   ),
   OnboardingModel(
-    title: 'Easy And Safe Paymnet',
+    title: '4'.tr,
     body:
-        "We Have a 100k Product , Choose \n Your Product From  Our \n E-commerce Shop",
+        "5".tr,
     image: AppImageAsset.onBoardingImageTwo,
   ),
   OnboardingModel(
-    title: 'Track Your Order',
+    title: '6'.tr,
     body:
-        "We Have a 100k Product , Choose \n Your Product From  Our \n E-commerce Shop",
+        "7".tr,
     image: AppImageAsset.onBoardingImageThree,
   ),
-  OnboardingModel(
-    title: 'Fast Delivery',
-    body:
-        "We Have a 100k Product , Choose \n Your Product From  Our \n E-commerce Shop",
-    image: AppImageAsset.onBoardingImageFour,
-  )
+
 ];

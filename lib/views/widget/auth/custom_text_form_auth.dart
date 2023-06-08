@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/core/constant/color.dart';
+import 'package:ecommerce_app/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormAuth extends StatelessWidget {
@@ -23,7 +23,7 @@ class CustomTextFormAuth extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
                 labelText,
-                style: TextStyle(color: AppColor.grey),
+                style: TextStyle(color: AppColors.grey),
               ),
             ),
             hintText: hintText,
@@ -32,12 +32,12 @@ class CustomTextFormAuth extends StatelessWidget {
                 const EdgeInsets.symmetric(vertical: 5, horizontal: 25),
             suffixIcon: Icon(
               icon,
-              color: AppColor.primaryColor,
+              color: AppColors.primaryColor,
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(32),
               borderSide: BorderSide(
-                color: AppColor.primaryColor,
+                color: AppColors.primaryColor,
               ),
             ),
             enabledBorder: OutlineInputBorder(

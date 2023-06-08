@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/constant/color.dart';
+import '../../../core/constant/app_colors.dart';
 
 class CustomTextBodyAuth extends StatelessWidget {
   const CustomTextBodyAuth({super.key, required this.bodyText});
@@ -12,7 +12,7 @@ class CustomTextBodyAuth extends StatelessWidget {
       style: Theme.of(context)
           .textTheme
           .bodyMedium
-          ?.copyWith(color: AppColor.grey),
+          ?.copyWith(color: AppColors.grey),
       textAlign: TextAlign.center,
     );
   }
