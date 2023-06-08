@@ -71,7 +71,9 @@ class SignUpScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 15),
               child: CustomButtonAuth(
                 text: 'Sign Up',
-                onPressed: () {},
+                onPressed: () {
+                  controller.signUp();
+                },
               ),
             ),
             Padding(

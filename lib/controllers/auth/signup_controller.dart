@@ -18,7 +18,9 @@ class SignUpControllerImp extends SignUpController {
   }
 
   @override
-  signUp() {}
+  signUp() {
+    Get.offNamed(AppRoutes.checkEmail);
+  }
 
   @override
   void onInit() {
