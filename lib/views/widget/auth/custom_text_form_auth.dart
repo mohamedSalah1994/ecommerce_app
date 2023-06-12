@@ -8,18 +8,22 @@ class CustomTextFormAuth extends StatelessWidget {
     required this.hintText,
     required this.icon,
     required this.myController,
-    required this.valid,
+    required this.valid, this.isNumber ,
   });
   final String labelText;
   final String hintText;
   final IconData icon;
   final TextEditingController myController;
   final String? Function(String?) valid;
+  final bool? isNumber ;
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 25),
       child: TextFormField(
+                keyboardType: isNumber == true
+            ? const TextInputType.numberWithOptions(decimal: true)
+            : TextInputType.text,
         validator: valid,
         decoration: InputDecoration(
           floatingLabelBehavior: FloatingLabelBehavior.always,

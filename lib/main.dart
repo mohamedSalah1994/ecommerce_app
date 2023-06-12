@@ -1,4 +1,5 @@
 
+import 'package:ecommerce_app/bindings.dart';
 import 'package:ecommerce_app/core/localization/change_locale.dart';
 import 'package:ecommerce_app/core/localization/translation.dart';
 import 'package:ecommerce_app/core/services/services.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       locale: controller.language,
       theme: controller.appTheme,
+      initialBinding: MyBindings(),
       home: const LanguageScreen(),
       routes: routes,
     );

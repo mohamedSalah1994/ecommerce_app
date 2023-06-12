@@ -14,7 +14,7 @@ class LoginControllerImp extends LoginController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   @override
   goToSignUp() {
-    Get.toNamed(AppRoutes.signup);
+    Get.offNamed(AppRoutes.signup);
   }
 
   @override
