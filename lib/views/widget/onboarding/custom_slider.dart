@@ -34,11 +34,11 @@ class CustomSliderOnboarding extends GetView<OnboardingControllerImp> {
             Image.asset(
               onBoardingList[index].image!,
               
-              height: Get.width / 1.5,
+              height: Get.width / 1.6,
               fit: BoxFit.fill,
             ),
             const SizedBox(
-              height: 80,
+              height: 60,
             ),
             Text(
               onBoardingList[index].body!,

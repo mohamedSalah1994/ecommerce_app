@@ -1,4 +1,5 @@
-import 'package:ecommerce_app/controllers/auth/forget_password_controller.dart';
+import 'package:ecommerce_app/controllers/auth/check_email_controller.dart';
+
 import 'package:ecommerce_app/views/widget/auth/custom_auth_appbar.dart';
 import 'package:ecommerce_app/views/widget/auth/custom_button_auth.dart';
 import 'package:ecommerce_app/views/widget/auth/custom_text_body_auth.dart';
@@ -13,8 +14,8 @@ class CheckEmailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgetPasswordControllerImp controller =
-        Get.put(ForgetPasswordControllerImp());
+    CheckEmailControllerImp controller =
+        Get.put(CheckEmailControllerImp());
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(55),
