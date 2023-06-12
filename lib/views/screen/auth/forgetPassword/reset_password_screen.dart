@@ -43,15 +43,19 @@ class ResetPasswordScreen extends StatelessWidget {
             const SizedBox(
               height: 65,
             ),
-            const CustomTextFormAuth(
+             CustomTextFormAuth(
+              valid: (val){},
               labelText: 'New Password',
               hintText: 'Enter Your New Password',
               icon: Icons.lock_outline,
+              myController: controller.password,
             ),
-            const CustomTextFormAuth(
+             CustomTextFormAuth(
+              valid: (val){},
               labelText: 'Confirm Password',
               hintText: 'Confirm Password',
               icon: Icons.lock_outline,
+              myController: controller.repassword,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 15),

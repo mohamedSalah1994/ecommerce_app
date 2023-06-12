@@ -44,24 +44,28 @@ class SignUpScreen extends StatelessWidget {
               height: 65,
             ),
             CustomTextFormAuth(
+              valid: (val){},
               labelText: 'User Name',
               hintText: 'Enter Your User Name',
               icon: Icons.person_outlined,
               myController: controller.username,
             ),
             CustomTextFormAuth(
+              valid: (val){},
               labelText: 'Email',
               hintText: 'Enter Your Email',
               icon: Icons.email_outlined,
               myController: controller.email,
             ),
             CustomTextFormAuth(
+              valid: (val){},
               labelText: 'Phone',
               hintText: 'Enter Your Phone',
               icon: Icons.phone_android_outlined,
               myController: controller.phone,
             ),
             CustomTextFormAuth(
+              valid: (val){},
               labelText: 'Password',
               hintText: 'Enter Your Password',
               icon: Icons.lock_outline,

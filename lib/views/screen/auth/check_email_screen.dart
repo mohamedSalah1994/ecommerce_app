@@ -45,6 +45,7 @@ class CheckEmailScreen extends StatelessWidget {
               height: 65,
             ),
             CustomTextFormAuth(
+              valid: (val){},
               labelText: 'Email',
               hintText: 'Enter Your Email',
               icon: Icons.email_outlined,
