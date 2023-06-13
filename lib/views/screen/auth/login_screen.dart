@@ -61,14 +61,22 @@ class LoginScreen extends StatelessWidget {
                     icon: Icons.email_outlined,
                     myController: controller.email,
                   ),
-                  CustomTextFormAuth(
-                    valid: (val) {
-                      return validInput(val!, 5, 30, 'password');
-                    },
-                    labelText: '19'.tr,
-                    hintText: '13'.tr,
-                    icon: Icons.lock_outline,
-                    myController: controller.password,
+                  GetBuilder<LoginControllerImp>(
+                    builder: (controller) => CustomTextFormAuth(
+                      valid: (val) {
+                        return validInput(val!, 5, 30, 'password');
+                      },
+                      labelText: '19'.tr,
+                      hintText: '13'.tr,
+                      icon: controller.isShowPassword
+                                  ? Icons.lock_outline
+                                  : Icons.lock_open_sharp,
+                      myController: controller.password,
+                      obscureText: controller.isShowPassword,
+                      onTapIcon: () {
+                        controller.showPassword();
+                      },
+                    ),
                   ),
                   GestureDetector(
                     onTap: () {
