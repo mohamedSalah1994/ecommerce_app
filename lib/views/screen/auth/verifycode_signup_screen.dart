@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/controllers/auth/verify_code_controller.dart';
+
 import 'package:ecommerce_app/core/constant/app_colors.dart';
 import 'package:ecommerce_app/views/widget/auth/custom_auth_appbar.dart';
 import 'package:ecommerce_app/views/widget/auth/custom_text_body_auth.dart';

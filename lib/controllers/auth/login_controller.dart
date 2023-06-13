@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,9 +27,13 @@ class LoginControllerImp extends LoginController {
   login() {
     var formData = formstate.currentState;
     if (formData!.validate()) {
-      print('valid') ;
+      if (kDebugMode) {
+        print('valid') ;
+      }
     } else {
-      print('not valid') ;
+      if (kDebugMode) {
+        print('not valid') ;
+      }
     }
   }
 

@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,9 @@ class SignUpControllerImp extends SignUpController {
       Get.offNamed(AppRoutes.verifyCodeSignUp);
       
     } else {
-      print("Not Valid");
+      if (kDebugMode) {
+        print("Not Valid");
+      }
     }
   }
 
