@@ -1,7 +1,6 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../services/services.dart';
 
 class MyMiddleware extends GetMiddleware {
