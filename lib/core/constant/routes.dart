@@ -12,4 +12,7 @@ class AppRoutes {
 
   //onBoarding route
   static const String onboarding = '/onboarding';
+
+    //home route
+  static const String home = '/home';
 }

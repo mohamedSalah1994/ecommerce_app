@@ -72,10 +72,10 @@ class MyTranslation extends Translations {
           "17": "Sign Up",
           "18": "Email",
           "19": "Password",
-          "20": "Username",
+          "20": "name",
           "21": "Phone",
           "22": "Enter Your Phone",
-          "23": "Enter Your Username",
+          "23": "Enter Your name",
           "24":
               "Sign Up With Your Email And Password OR Continue With Social Media",
           "25": " have an account ? ",
@@ -94,8 +94,8 @@ class MyTranslation extends Translations {
           "38": "successfully registered",
           "39": "Alert",
           "40": "Exit App ?",
-           "41": "Confirm",
-           "42": "Cancel",
+          "41": "Confirm",
+          "42": "Cancel",
         },
       };
 }

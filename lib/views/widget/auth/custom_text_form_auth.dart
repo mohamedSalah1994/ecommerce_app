@@ -28,6 +28,7 @@ class CustomTextFormAuth extends StatelessWidget {
             ? const TextInputType.numberWithOptions(decimal: true)
             : TextInputType.text,
         validator: valid,
+        controller: myController,
         obscureText: obscureText == null || obscureText == false ? false : true,
         decoration: InputDecoration(
           floatingLabelBehavior: FloatingLabelBehavior.always,

@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
 validInput(String val, int min, int max, String type) {
-  if (type == "username") {
+  if (type == "name") {
     if (!GetUtils.isUsername(val)) {
-      return "not valid username";
+      return "not valid name";
     }
   }
   if (type == "email") {

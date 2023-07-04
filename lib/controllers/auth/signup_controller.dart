@@ -1,7 +1,13 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../core/class/status_request.dart';
+import '../../core/functions/handling_data.dart';
+import '../../data/datasource/remote/auth/signup.dart';
+import 'package:http/http.dart' as http;
 
 abstract class SignUpController extends GetxController {
   goToLogin();
@@ -9,31 +15,58 @@ abstract class SignUpController extends GetxController {
 }
 
 class SignUpControllerImp extends SignUpController {
-  late TextEditingController username;
+  late TextEditingController name;
   late TextEditingController email;
   late TextEditingController phone;
   late TextEditingController password;
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
+  StatusRequest? statusRequest;
+  SignupData signupData = SignupData(Get.find());
+  List data = [];
+
   @override
   goToLogin() {
     Get.offAllNamed(AppRoutes.login);
   }
 
   @override
-  signUp() {
-        if (formstate.currentState!.validate()) {
-      Get.offNamed(AppRoutes.verifyCodeSignUp);
-      
-    } else {
+  signUp() async {
+    if (formstate.currentState!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await signupData.postdata(
+        name.text,
+        password.text,
+        email.text,
+        phone.text,
+      );
       if (kDebugMode) {
-        print("Not Valid");
+        print("=============================== Controller $response ");
       }
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == "success") {
+          // data.addAll(response['data']);
+          Get.offNamed(AppRoutes.verifyCodeSignUp,
+              arguments: {"email": email.text});
+        } else if (response['status'] == "failure") {
+          Get.defaultDialog(
+              title: "ُWarning",
+              middleText: "Phone Number Or Email Already Exists");
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
     }
+
+   else {}
   }
+  
 
   @override
   void onInit() {
-    username = TextEditingController();
+    name = TextEditingController();
     email = TextEditingController();
     phone = TextEditingController();
     password = TextEditingController();
@@ -42,7 +75,7 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   void dispose() {
-    username.dispose();
+    name.dispose();
     email.dispose();
     phone.dispose();
     password.dispose();

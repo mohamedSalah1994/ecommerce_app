@@ -9,6 +9,7 @@ import 'package:ecommerce_app/views/screen/auth/login_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/signup_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/success_sign_up.dart';
 import 'package:ecommerce_app/views/screen/auth/verifycode_signup_screen.dart';
+import 'package:ecommerce_app/views/screen/home_screen.dart';
 import 'package:ecommerce_app/views/screen/language/language_screen.dart';
 import 'package:ecommerce_app/views/screen/onboarding_screen.dart';
 import 'package:ecommerce_app/views/test_view.dart';
@@ -16,10 +17,10 @@ import 'package:ecommerce_app/views/test_view.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
-  // GetPage(name: "/", page:() => const LanguageScreen() , middlewares: [
-  //   MyMiddleware()
-  // ]),
-  GetPage(name: "/", page:() => const TestView() ),
+  GetPage(name: "/", page:() => const LanguageScreen() , middlewares: [
+    MyMiddleware()
+  ]),
+  // GetPage(name: "/", page:() => const TestView() ),
   
   GetPage(name: AppRoutes.login, page:() => const LoginScreen() ),
   GetPage(name: AppRoutes.signup, page:() =>  const SignUpScreen()),
@@ -30,6 +31,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.successResetPassword, page:() =>  const SuccessResetPassword()),
   GetPage(name: AppRoutes.successSignUp, page:() =>  const SuccessSignUp()),
   GetPage(name: AppRoutes.onboarding, page:() =>  const OnBoardingScreen()),
+  GetPage(name: AppRoutes.home, page: () => const HomeScreen()),
 ];
 
 

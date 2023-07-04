@@ -1,31 +1,60 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
+import 'package:ecommerce_app/data/datasource/remote/auth/verify_code_signup.dart';
+import 'package:ecommerce_app/link_api.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+
+import '../../core/class/status_request.dart';
+import '../../core/functions/handling_data.dart';
 
 abstract class VerifyCodeSignUpController extends GetxController {
   checkVerfyCode();
-  goToSuccessSignUp();
+  goToSuccessSignUp(String verfiyCodeSignUp);
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
-   late TextEditingController code;
+  
+  VerifyCodeSignUpData verifyCodeSignUpData = VerifyCodeSignUpData(Get.find());
+  String? email;
+  
+  StatusRequest? statusRequest;
   @override
-  checkVerfyCode() {}
+  checkVerfyCode() async {}
 
   @override
-  goToSuccessSignUp() {
-    Get.toNamed(AppRoutes.successSignUp);
+  goToSuccessSignUp(verfiyCodeSignUp) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response =
+        await verifyCodeSignUpData.postdata(email!, verfiyCodeSignUp);
+    if (kDebugMode) {
+      print("=============================== Controller $response ");
+    }
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        // data.addAll(response['data']);
+        Get.offNamed(
+          AppRoutes.successSignUp,
+        );
+      } else  {
+        Get.defaultDialog(
+            title: "ُWarning",
+            middleText: "Verify Code Not Correct");
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
   }
 
-    @override
+  @override
   void onInit() {
-    code = TextEditingController();
+    email = Get.arguments['email'];
+    
     super.onInit();
   }
 
-  @override
-  void dispose() {
-    code.dispose();
-    super.dispose();
-  }
+
 }
