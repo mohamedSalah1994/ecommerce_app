@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import '../../core/class/status_request.dart';
 import '../../core/functions/handling_data.dart';
 import '../../data/datasource/remote/auth/signup.dart';
-import 'package:http/http.dart' as http;
+
 
 abstract class SignUpController extends GetxController {
   goToLogin();
