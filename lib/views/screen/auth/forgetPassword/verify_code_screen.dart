@@ -1,9 +1,9 @@
-import 'package:ecommerce_app/controllers/auth/verify_code_controller.dart';
 import 'package:ecommerce_app/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
+import '../../../../controllers/forgetPassword/verify_code_controller.dart';
 import '../../../widget/auth/custom_auth_appbar.dart';
 import '../../../widget/auth/custom_text_body_auth.dart';
 import '../../../widget/auth/custom_text_title_auth.dart';
@@ -57,7 +57,7 @@ class VerifyCodeScreen extends StatelessWidget {
               },
               //runs when every textfield is filled
               onSubmit: (String verificationCode) {
-                controller.goToResetPassword();
+                controller.checkVerifyCode(verificationCode);
               }, // end onSubmit
             ),
           ],

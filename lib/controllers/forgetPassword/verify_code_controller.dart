@@ -1,30 +1,26 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
-import 'package:ecommerce_app/data/datasource/remote/auth/verify_code_signup.dart';
+import 'package:ecommerce_app/data/datasource/remote/forgetPassword/verify_code.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../core/class/status_request.dart';
 import '../../core/functions/handling_data.dart';
 
-abstract class VerifyCodeSignUpController extends GetxController {
-  checkVerfyCode();
-  goToSuccessSignUp(String verfiyCodeSignUp);
+abstract class VerifyCodeController extends GetxController {
+  checkVerifyCode(String verfiyCodeSignUp);
+  goToResetPassword();
 }
 
-class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
-  
-  VerifyCodeSignUpData verifyCodeSignUpData = VerifyCodeSignUpData(Get.find());
+class VerifyCodeControllerImp extends VerifyCodeController {
+  VerifyCodeData verifyCodeData = VerifyCodeData(Get.find());
   String? email;
-  
   StatusRequest? statusRequest;
   @override
-  checkVerfyCode() async {}
-
-  @override
-  goToSuccessSignUp(verfiyCodeSignUp) async {
+  checkVerifyCode(verfiyCodeSignUp) async {
     statusRequest = StatusRequest.loading;
     update();
-    var response =
-        await verifyCodeSignUpData.postdata(email!, verfiyCodeSignUp);
+    var response = await verifyCodeData.postdata(email!, verfiyCodeSignUp);
     if (kDebugMode) {
       print("=============================== Controller $response ");
     }
@@ -33,12 +29,12 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
       if (response['status'] == "success") {
         // data.addAll(response['data']);
         Get.offNamed(
-          AppRoutes.successSignUp,
+          AppRoutes.resetPassword,
+          arguments: {"email": email},
         );
-      } else  {
+      } else {
         Get.defaultDialog(
-            title: "ُWarning",
-            middleText: "Verify Code Not Correct");
+            title: "ُWarning", middleText: "Verify Code Not Correct");
         statusRequest = StatusRequest.failure;
       }
     }
@@ -46,11 +42,13 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   }
 
   @override
-  void onInit() {
-    email = Get.arguments['email'];
-    
-    super.onInit();
+  goToResetPassword() {
+    Get.toNamed(AppRoutes.resetPassword);
   }
 
-
+  @override
+  void onInit() {
+    email = Get.arguments['email'];
+    super.onInit();
+  }
 }

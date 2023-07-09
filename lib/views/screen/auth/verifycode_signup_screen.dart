@@ -55,9 +55,9 @@ class VerifyCodeSignUpScreen extends StatelessWidget {
               //set to true to show as box or false to show as dash
               showFieldAsBox: true,
               //runs when a code is typed in
-              onCodeChanged: (String code) {
-                //handle validation or checks here
-              },
+              // onCodeChanged: (String code) {
+              //   //handle validation or checks here
+              // },
               //runs when every textfield is filled
               onSubmit: (String verificationCode) {
                 controller.goToSuccessSignUp(verificationCode);
