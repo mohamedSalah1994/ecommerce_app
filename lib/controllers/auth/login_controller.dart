@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
+import 'package:ecommerce_app/core/services/services.dart';
 import 'package:ecommerce_app/data/datasource/remote/auth/login.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class LoginControllerImp extends LoginController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   StatusRequest? statusRequest = StatusRequest.none;
   LoginData loginData = LoginData(Get.find());
+  MyServices myServices = Get.find();
   bool isShowPassword = true;
 
   showPassword() {
@@ -44,20 +46,23 @@ class LoginControllerImp extends LoginController {
       var response = await loginData.postdata(
         email.text,
         password.text,
-        
       );
       if (kDebugMode) {
-        print("=============================== Controller $response ");
+        print("==============*================= Controller $response ");
       }
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
           // data.addAll(response['data']);
+          myServices.sharedPreferences.setInt("id", response['user']['id']);
+          myServices.sharedPreferences.setString("name", response['user']['name']);
+          myServices.sharedPreferences.setString("email", response['user']['email']);
+          myServices.sharedPreferences.setString("phone", response['user']['phone']);
+          myServices.sharedPreferences.setString("step", '2');
           Get.offNamed(AppRoutes.home);
         } else if (response['status'] == "failure") {
           Get.defaultDialog(
-              title: "ُWarning",
-              middleText: "Wrong email or password");
+              title: "ُWarning", middleText: "Wrong email or password");
           statusRequest = StatusRequest.failure;
         }
       }

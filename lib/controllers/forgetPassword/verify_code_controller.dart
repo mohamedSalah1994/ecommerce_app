@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/data/datasource/remote/forgetPassword/verify_code.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 import '../../core/class/status_request.dart';

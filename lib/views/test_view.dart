@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/test_controller.dart';
-import '../core/class/handling_data_view.dart';
+
 
 class TestView extends StatelessWidget {
   const TestView({Key? key}) : super(key: key);

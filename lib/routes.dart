@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/core/middleware/my_middleware.dart';
-import 'package:ecommerce_app/test.dart';
+
 import 'package:ecommerce_app/views/screen/auth/forgetPassword/forget_password_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/forgetPassword/reset_password_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/forgetPassword/success_reset_password.dart';
@@ -13,7 +13,7 @@ import 'package:ecommerce_app/views/screen/home_screen.dart';
 import 'package:ecommerce_app/views/screen/language/language_screen.dart';
 import 'package:ecommerce_app/views/screen/onboarding_screen.dart';
 import 'package:ecommerce_app/views/screen/server_exception_screen.dart';
-import 'package:ecommerce_app/views/test_view.dart';
+
 
 import 'package:get/get.dart';
 

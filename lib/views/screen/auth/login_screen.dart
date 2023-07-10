@@ -12,7 +12,7 @@ import 'package:ecommerce_app/views/widget/auth/logo_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/class/status_request.dart';
+
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
