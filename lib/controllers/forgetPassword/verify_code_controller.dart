@@ -15,7 +15,7 @@ abstract class VerifyCodeController extends GetxController {
 class VerifyCodeControllerImp extends VerifyCodeController {
   VerifyCodeData verifyCodeData = VerifyCodeData(Get.find());
   String? email;
-  StatusRequest? statusRequest;
+   StatusRequest statusRequest = StatusRequest.none;
   @override
   checkVerifyCode(verfiyCodeSignUp) async {
     statusRequest = StatusRequest.loading;

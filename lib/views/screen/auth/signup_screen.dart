@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/controllers/auth/signup_controller.dart';
-import 'package:ecommerce_app/core/class/status_request.dart';
+import 'package:ecommerce_app/core/class/handling_data_view.dart';
+
 import 'package:ecommerce_app/core/functions/alert_exit_app.dart';
 import 'package:ecommerce_app/views/widget/auth/custom_auth_appbar.dart';
 import 'package:flutter/material.dart';
@@ -27,12 +28,9 @@ class SignUpScreen extends StatelessWidget {
       body: WillPopScope(
         onWillPop: alertExitApp,
         child: GetBuilder<SignUpControllerImp>(
-          builder: (controller) => controller.statusRequest ==
-                  StatusRequest.loading
-              ? const Center(
-                  child: Text('loading....'),
-                )
-              : Container(
+          builder: (controller) =>
+           HandlingDataRequest(statusRequest: controller.statusRequest,
+            widget: Container(
                   padding:
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 35),
                   alignment: Alignment.center,
@@ -116,6 +114,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+            )
         ),
       ),
     );

@@ -17,7 +17,7 @@ class LoginControllerImp extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
-  StatusRequest? statusRequest;
+  StatusRequest? statusRequest = StatusRequest.none;
   LoginData loginData = LoginData(Get.find());
   bool isShowPassword = true;
 

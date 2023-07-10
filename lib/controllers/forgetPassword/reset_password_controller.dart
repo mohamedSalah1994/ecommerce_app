@@ -17,7 +17,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   late TextEditingController passwordconfirmation;
   String? email;
     GlobalKey<FormState> formstate = GlobalKey<FormState>();
-  StatusRequest? statusRequest;
+   StatusRequest statusRequest = StatusRequest.none;
   ResetPasswordData loginData = ResetPasswordData(Get.find());
   bool isShowPassword = true;
   @override
@@ -44,7 +44,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
           // data.addAll(response['data']);
-          Get.offNamed(AppRoutes.home);
+          Get.offNamed(AppRoutes.successResetPassword);
         } else if (response['status'] == "failure") {
           Get.defaultDialog(
               title: "ُWarning",

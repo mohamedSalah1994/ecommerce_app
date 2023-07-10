@@ -21,7 +21,7 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController password;
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
-  StatusRequest? statusRequest;
+   StatusRequest statusRequest = StatusRequest.none;
   SignupData signupData = SignupData(Get.find());
   List data = [];
 

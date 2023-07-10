@@ -17,7 +17,7 @@ abstract class ForgetPasswordController extends GetxController {
 class ForgetPasswordControllerImp extends ForgetPasswordController {
    late TextEditingController email;
      GlobalKey<FormState> formstate = GlobalKey<FormState>();
-  StatusRequest? statusRequest;
+   StatusRequest statusRequest = StatusRequest.none;
   CheckEmailData checkEmailData = CheckEmailData(Get.find());
   @override
   checkEmail() async{

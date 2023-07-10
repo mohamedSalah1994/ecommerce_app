@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/controllers/auth/login_controller.dart';
+import 'package:ecommerce_app/core/class/handling_data_view.dart';
 import 'package:ecommerce_app/core/functions/alert_exit_app.dart';
 import 'package:ecommerce_app/core/functions/valid_input.dart';
 import 'package:ecommerce_app/views/widget/auth/custom_auth_appbar.dart';
@@ -29,12 +30,9 @@ class LoginScreen extends StatelessWidget {
         body: WillPopScope(
             onWillPop: alertExitApp,
             child: GetBuilder<LoginControllerImp>(
-              builder: (controller) => controller.statusRequest ==
-                      StatusRequest.loading
-                  ? const Center(
-                      child: Text('loading....'),
-                    )
-                  : Container(
+              builder: (controller) =>
+              HandlingDataRequest(statusRequest: controller.statusRequest!,
+               widget: Container(
                       padding: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 35),
                       alignment: Alignment.center,
@@ -119,6 +117,8 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+               )
+                
             )));
   }
 }
