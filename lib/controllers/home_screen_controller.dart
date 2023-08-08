@@ -30,7 +30,13 @@ class HomeScreenControllerImp extends HomeScreenController {
       ),
     ),
   ];
-  List titleBottomAppbar = ['Home', 'Settings', 'Profile', 'Favorite'];
+  List titleBottomAppbarList = ['Home', 'Settings', 'Profile', 'Favorite'];
+  List<IconData> bottomAppbarIconsList = [
+    Icons.home,
+    Icons.settings,
+    Icons.person,
+    Icons.favorite
+  ];
 
   @override
   changePage(int i) {
