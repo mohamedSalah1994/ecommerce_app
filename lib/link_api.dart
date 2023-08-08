@@ -15,7 +15,8 @@ static const String verifyCodeForgetPassword = "$server/verify_code_forget_passw
 static const String resetPassword = "$server/reset_password";
 
  
-
+// ================================= Home ========================== //
+static const String homePage = "$server/home";
 
  
 }

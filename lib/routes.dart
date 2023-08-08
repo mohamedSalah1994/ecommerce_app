@@ -10,6 +10,7 @@ import 'package:ecommerce_app/views/screen/auth/signup_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/success_sign_up.dart';
 import 'package:ecommerce_app/views/screen/auth/verifycode_signup_screen.dart';
 import 'package:ecommerce_app/views/screen/home_screen.dart';
+import 'package:ecommerce_app/views/screen/home_screen_main.dart';
 import 'package:ecommerce_app/views/screen/language/language_screen.dart';
 import 'package:ecommerce_app/views/screen/onboarding_screen.dart';
 import 'package:ecommerce_app/views/screen/server_exception_screen.dart';
@@ -32,7 +33,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.successResetPassword, page:() =>  const SuccessResetPassword()),
   GetPage(name: AppRoutes.successSignUp, page:() =>  const SuccessSignUp()),
   GetPage(name: AppRoutes.onboarding, page:() =>  const OnBoardingScreen()),
-  GetPage(name: AppRoutes.home, page: () => const HomeScreen()),
+  GetPage(name: AppRoutes.home, page: () => const HomeScreenMain()),
   GetPage(name: AppRoutes.serverException, page: () => const ServerExceptionScreen()),
 ];
 

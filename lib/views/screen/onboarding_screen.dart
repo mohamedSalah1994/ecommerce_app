@@ -13,18 +13,18 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OnboardingControllerImp());
     
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
         body: Column(
           children: [
-            const Expanded(
+            Expanded(
               flex: 3,
               child: CustomSliderOnboarding(),
             ),
             Expanded(
               flex: 1,
               child: Column(
-                children: const [
+                children: [
                   DotControllerOnboarding(),
                   Spacer(flex: 3),
                   CustomButtonOnboarding(),

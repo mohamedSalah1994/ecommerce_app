@@ -8,7 +8,6 @@ import '../../core/class/status_request.dart';
 import '../../core/functions/handling_data.dart';
 import '../../data/datasource/remote/auth/signup.dart';
 
-
 abstract class SignUpController extends GetxController {
   goToLogin();
   signUp();
@@ -21,7 +20,7 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController password;
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
-   StatusRequest statusRequest = StatusRequest.none;
+  StatusRequest statusRequest = StatusRequest.none;
   SignupData signupData = SignupData(Get.find());
   List data = [];
 
@@ -52,17 +51,15 @@ class SignUpControllerImp extends SignUpController {
               arguments: {"email": email.text});
         } else if (response['status'] == "failure") {
           Get.defaultDialog(
-              title: "ُWarning",
-              middleText: "Phone Number Or Email Already Exists");
+            title: "ُWarning",
+            middleText: "Phone Number Or Email Already Exists",
+          );
           statusRequest = StatusRequest.failure;
         }
       }
       update();
-    }
-
-   else {}
+    } else {}
   }
-  
 
   @override
   void onInit() {
