@@ -1,7 +1,8 @@
+import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/core/services/services.dart';
 import 'package:ecommerce_app/data/datasource/remote/home_data.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 import '../core/class/status_request.dart';
@@ -9,6 +10,7 @@ import '../core/functions/handling_data.dart';
 
 abstract class HomeController extends GetxController {
   getData();
+  goToItems(List categories, int selectedCat);
 }
 
 class HomeControllerImp extends HomeController {
@@ -17,17 +19,9 @@ class HomeControllerImp extends HomeController {
   int? id;
   HomeData homeData = HomeData(Get.find());
 
-   List items = [];
+  List items = [];
   List categories = [];
-  List<IconData> categoryIcons = [
-    Icons.laptop,
-    Icons.camera_alt,
-    Icons.mobile_friendly,
-     Icons.laptop,
-    Icons.camera_alt,
-    Icons.mobile_friendly,
-    
-  ];
+
   late StatusRequest statusRequest;
   @override
   getData() async {
@@ -39,8 +33,8 @@ class HomeControllerImp extends HomeController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
+        categories.addAll(response['categories']);
         items.addAll(response['items']);
-       // items.addAll(response['items']);
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -58,5 +52,14 @@ class HomeControllerImp extends HomeController {
     initialData();
     getData();
     super.onInit();
+  }
+
+  @override
+  goToItems( categories,  selectedCat) {
+    Get.toNamed(AppRoutes.items , arguments: {
+      'categories' : categories,
+      'selectedCat' : selectedCat,
+
+    });
   }
 }

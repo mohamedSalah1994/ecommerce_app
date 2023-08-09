@@ -16,6 +16,8 @@ class AppRoutes {
     //home route
   static const String home = '/home';
 
+      //items route
+  static const String items = '/items';
 
   static const String serverException = '/serverException';
 }

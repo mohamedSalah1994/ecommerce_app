@@ -1,12 +1,12 @@
-import 'package:ecommerce_app/controllers/home_controller.dart';
+import 'package:ecommerce_app/controllers/items_controller.dart';
 import 'package:ecommerce_app/data/model/categories_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constant/app_colors.dart';
 
-class ListCategoriesHome extends GetView<HomeControllerImp> {
-  const ListCategoriesHome({super.key});
+class ListCategoriesItems extends GetView<ItemsControllerImp> {
+  const ListCategoriesItems({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class ListCategoriesHome extends GetView<HomeControllerImp> {
   }
 }
 
-class Categories extends GetView<HomeControllerImp> {
+class Categories extends GetView<ItemsControllerImp> {
   final CategoriesModel categoriesModel;
   final int? i;
   const Categories({Key? key, required this.categoriesModel, required this.i})
@@ -37,21 +37,26 @@ class Categories extends GetView<HomeControllerImp> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        controller.goToItems(controller.categories, i!);
+        controller.changeCat(i!);
       },
       child: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-                color: AppColors.primaryColor.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(12)),
-            child: Icon(
-              Icons.abc,
-              color: AppColors.primaryColor,
+          GetBuilder<ItemsControllerImp>(builder: (controller) => Container(
+            padding: const EdgeInsets.only(right: 10 , left: 10 , bottom: 5),
+            decoration: controller.selectedCat == i
+                ? BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        width: 3,
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+                  )
+                : null,
+            child: Text(
+              categoriesModel.name,
             ),
-          ),
-          Text(categoriesModel.name)
+          ),)
         ],
       ),
     );

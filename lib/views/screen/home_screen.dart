@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/controllers/home_controller.dart';
 import 'package:ecommerce_app/core/class/handling_data_view.dart';
 
-import 'package:ecommerce_app/views/widget/home/custom_app_bar.dart';
+import 'package:ecommerce_app/views/widget/custom_app_bar.dart';
 import 'package:ecommerce_app/views/widget/home/custom_card_home.dart';
 import 'package:ecommerce_app/views/widget/home/custom_title_home.dart';
 import 'package:ecommerce_app/views/widget/home/list_categories_home.dart';

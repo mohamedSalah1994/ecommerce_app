@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/core/middleware/my_middleware.dart';
-
 import 'package:ecommerce_app/views/screen/auth/forgetPassword/forget_password_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/forgetPassword/reset_password_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/forgetPassword/success_reset_password.dart';
@@ -9,8 +8,8 @@ import 'package:ecommerce_app/views/screen/auth/login_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/signup_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/success_sign_up.dart';
 import 'package:ecommerce_app/views/screen/auth/verifycode_signup_screen.dart';
-import 'package:ecommerce_app/views/screen/home_screen.dart';
 import 'package:ecommerce_app/views/screen/home_screen_main.dart';
+import 'package:ecommerce_app/views/screen/items_screen.dart';
 import 'package:ecommerce_app/views/screen/language/language_screen.dart';
 import 'package:ecommerce_app/views/screen/onboarding_screen.dart';
 import 'package:ecommerce_app/views/screen/server_exception_screen.dart';
@@ -34,6 +33,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.successSignUp, page:() =>  const SuccessSignUp()),
   GetPage(name: AppRoutes.onboarding, page:() =>  const OnBoardingScreen()),
   GetPage(name: AppRoutes.home, page: () => const HomeScreenMain()),
+  GetPage(name: AppRoutes.items, page: () => const ItemsScreen()),
   GetPage(name: AppRoutes.serverException, page: () => const ServerExceptionScreen()),
 ];
 
