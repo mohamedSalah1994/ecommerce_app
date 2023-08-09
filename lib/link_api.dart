@@ -18,5 +18,8 @@ static const String resetPassword = "$server/reset_password";
 // ================================= Home ========================== //
 static const String homePage = "$server/home";
 
+// ================================= items ========================== //
+static const String items = "$server/items";
+
  
 }
