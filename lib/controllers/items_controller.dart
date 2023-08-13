@@ -4,21 +4,18 @@ import 'package:get/get.dart';
 
 import '../core/class/status_request.dart';
 import '../core/functions/handling_data.dart';
-import '../core/services/services.dart';
 
 abstract class ItemsController extends GetxController {
   initialData();
-  changeCat(int val);
-  getData();
+  changeCat(int val, int catVal);
+  getData(int categoryId);
 }
 
 class ItemsControllerImp extends ItemsController {
   int? selectedCat;
 
-  MyServices myServices = Get.find();
-  String? name;
-  int? id;
-  ItemData homeData = ItemData(Get.find());
+  int? catId;
+  ItemData itemData = ItemData(Get.find());
 
   List items = [];
   List categories = [];
@@ -27,14 +24,15 @@ class ItemsControllerImp extends ItemsController {
   @override
   void onInit() {
     initialData();
-    getData();
+
     super.onInit();
   }
 
   @override
-  getData() async {
+  getData(categoryId) async {
+    items.clear();
     statusRequest = StatusRequest.loading;
-    var response = await homeData.getData();
+    var response = await itemData.getData(categoryId);
     if (kDebugMode) {
       print("=============================== Controller $response ");
     }
@@ -53,11 +51,15 @@ class ItemsControllerImp extends ItemsController {
   initialData() {
     categories = Get.arguments['categories'];
     selectedCat = Get.arguments['selectedCat'];
+    catId = Get.arguments['catId'];
+    getData(catId!);
   }
 
   @override
-  changeCat(int val) {
+  changeCat(val, catVal) {
     selectedCat = val;
+    catId = catVal;
+     getData(catId!);
     update();
   }
 }

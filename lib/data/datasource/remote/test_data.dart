@@ -6,7 +6,7 @@ class TestData {
   TestData(this.crud);
 
   getData() async {
-    var response = await crud.getData(AppLink.test, {});
+    var response = await crud.getData(AppLink.test);
     return response.fold((l) => l, (r) => r);
   }
 }

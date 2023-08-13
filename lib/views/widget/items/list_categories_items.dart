@@ -37,7 +37,7 @@ class Categories extends GetView<ItemsControllerImp> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        controller.changeCat(i!);
+        controller.changeCat(i! , categoriesModel.id);
       },
       child: Column(
         children: [

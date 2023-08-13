@@ -19,6 +19,7 @@ Future<Either<StatusRequest, Map>> postData(String linkurl, Map data) async {
         Uri.parse(linkurl),
         headers: headers, // Pass the headers to the post method
         body: jsonEncode(data),
+
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -36,11 +37,16 @@ Future<Either<StatusRequest, Map>> postData(String linkurl, Map data) async {
   }
 }
 
-  Future<Either<StatusRequest, Map>> getData(String linkurl, Map data) async {
+  Future<Either<StatusRequest, Map>> getData(String linkurl) async {
     try {
       if (await checkInternet()) {
+              var headers = {
+        'Content-Type': 'application/json', // Set the Content-Type header
+      };
         var response = await http.get(
           Uri.parse(linkurl),
+          headers: headers,
+          
         );
         if (response.statusCode == 200 || response.statusCode == 201) {
           Map responsebody = jsonDecode(response.body);

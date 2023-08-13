@@ -10,7 +10,7 @@ import '../core/functions/handling_data.dart';
 
 abstract class HomeController extends GetxController {
   getData();
-  goToItems(List categories, int selectedCat);
+  goToItems(List categories, int selectedCat, int categoryId);
 }
 
 class HomeControllerImp extends HomeController {
@@ -55,11 +55,12 @@ class HomeControllerImp extends HomeController {
   }
 
   @override
-  goToItems( categories,  selectedCat) {
-    Get.toNamed(AppRoutes.items , arguments: {
-      'categories' : categories,
-      'selectedCat' : selectedCat,
-
+  goToItems(categories, selectedCat, categoryId) {
+    Get.toNamed(AppRoutes.items, arguments: {
+      'categories': categories,
+      'selectedCat': selectedCat,
+      'catId': categoryId
     });
+    
   }
 }

@@ -5,8 +5,9 @@ class ItemData {
   Crud crud;
   ItemData(this.crud);
 
-  getData() async {
-    var response = await crud.getData(AppLink.items, {});
+  getData(int id) async {
+    var url = '${AppLink.items}/$id';
+    var response = await crud.getData(url);
     return response.fold((l) => l, (r) => r);
   }
 }
