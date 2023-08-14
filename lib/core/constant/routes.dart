@@ -18,6 +18,8 @@ class AppRoutes {
 
       //items route
   static const String items = '/items';
+  static const String itemsDetails = '/itemsDetails';
+
 
   static const String serverException = '/serverException';
 }

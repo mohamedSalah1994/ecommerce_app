@@ -1,4 +1,6 @@
+import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/data/datasource/remote/item_data.dart';
+import 'package:ecommerce_app/data/model/items_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +11,7 @@ abstract class ItemsController extends GetxController {
   initialData();
   changeCat(int val, int catVal);
   getData(int categoryId);
+  goToItemsDetailsScreen(ItemsModel itemsModel);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -59,7 +62,14 @@ class ItemsControllerImp extends ItemsController {
   changeCat(val, catVal) {
     selectedCat = val;
     catId = catVal;
-     getData(catId!);
+    getData(catId!);
     update();
+  }
+
+  @override
+  goToItemsDetailsScreen(itemsModel) {
+    Get.toNamed(AppRoutes.itemsDetails , arguments: {
+      'itemsModel' : itemsModel
+    });
   }
 }
