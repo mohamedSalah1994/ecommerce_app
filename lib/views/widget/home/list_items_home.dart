@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/controllers/home_controller.dart';
+import 'package:ecommerce_app/core/functions/translate_database.dart';
 import 'package:ecommerce_app/data/model/items_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -49,7 +50,7 @@ class Items extends StatelessWidget {
           left: 10,
           top: 5,
           child: Text(
-            itemsModel.name,
+            translateDatabase(itemsModel.nameAr, itemsModel.name),
             style: const TextStyle(
                 color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
           ),

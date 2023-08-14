@@ -17,6 +17,7 @@ class HomeControllerImp extends HomeController {
   MyServices myServices = Get.find();
   String? name;
   int? id;
+  String? lang;
   HomeData homeData = HomeData(Get.find());
 
   List items = [];
@@ -45,6 +46,7 @@ class HomeControllerImp extends HomeController {
   initialData() {
     name = myServices.sharedPreferences.getString('name');
     id = myServices.sharedPreferences.getInt('id');
+    lang = myServices.sharedPreferences.getString('lang');
   }
 
   @override
@@ -61,6 +63,5 @@ class HomeControllerImp extends HomeController {
       'selectedCat': selectedCat,
       'catId': categoryId
     });
-    
   }
 }

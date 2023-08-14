@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/constant/app_colors.dart';
+import '../../../core/functions/translate_database.dart';
 import '../../../data/model/items_model.dart';
 
 class CustomListItems extends StatelessWidget {
@@ -21,11 +22,11 @@ class CustomListItems extends StatelessWidget {
             children: [
               Image.asset(
             'assets/images/laptop.png',
-            height: 100,
+            height: 95,
             fit: BoxFit.fill,
           ),
               const SizedBox(height: 10) , 
-              Text(itemsModel.name,
+              Text(translateDatabase(itemsModel.nameAr, itemsModel.name),
                   style: TextStyle(
                       color: AppColors.black,
                       fontSize: 16,

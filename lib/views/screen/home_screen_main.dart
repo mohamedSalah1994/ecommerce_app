@@ -11,6 +11,7 @@ class HomeScreenMain extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeScreenControllerImp());
     return GetBuilder<HomeScreenControllerImp>(
+      
       builder: (controller) => Scaffold(
           floatingActionButton: FloatingActionButton(
             backgroundColor: AppColors.primaryColor,
@@ -21,7 +22,7 @@ class HomeScreenMain extends StatelessWidget {
           ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
-          bottomNavigationBar: const CustomBottomAppbarHome(),
+           bottomNavigationBar: const CustomBottomAppbarHome(),
           body: controller.pagesList.elementAt(controller.currentPage)),
     );
   }
