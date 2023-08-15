@@ -15,7 +15,7 @@ class CustomButtonOnboarding extends GetView<OnboardingControllerImp> {
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primaryColor,
-        padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

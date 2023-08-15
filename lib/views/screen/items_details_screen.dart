@@ -1,6 +1,9 @@
 import 'package:ecommerce_app/controllers/items_details_controller.dart';
 import 'package:ecommerce_app/core/constant/app_colors.dart';
 import 'package:ecommerce_app/core/functions/translate_database.dart';
+import 'package:ecommerce_app/views/widget/items_details/price_and_count.dart';
+import 'package:ecommerce_app/views/widget/items_details/subitems_colors_list.dart';
+import 'package:ecommerce_app/views/widget/items_details/top_items_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,34 +29,7 @@ class ItemsDetailsScreen extends StatelessWidget {
         ),
       ),
       body: ListView(children: [
-        Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Container(
-              height: 200,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                color: AppColors.secondColor,
-                borderRadius: BorderRadius.vertical(
-                  bottom: Radius.circular(10),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 30,
-              right: Get.width / 8,
-              left: Get.width / 8,
-              child: Hero(
-                tag: controller.itemsModel.id,
-                child: Image.asset(
-                  'assets/images/laptop1.png',
-                  height: 250,
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ],
-        ),
+        const TopItemsDetailsPage(),
         const SizedBox(height: 80),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -70,9 +46,9 @@ class ItemsDetailsScreen extends StatelessWidget {
                     .displayLarge!
                     .copyWith(color: AppColors.fourthColor),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
+               PriceAndCount(count: '2', price: 200.0 , onAdd: (){}, onRemove: () {}),
+              const SizedBox(height: 10),
               Text(
                 '${controller.itemsModel.desc}'
                 '${controller.itemsModel.desc}'
@@ -95,55 +71,7 @@ class ItemsDetailsScreen extends StatelessWidget {
                     .copyWith(color: AppColors.fourthColor),
               ),
               const SizedBox(height: 15),
-              Row(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(right: 10),
-                    alignment: Alignment.center,
-                    height: 60,
-                    width: 90,
-                    decoration: BoxDecoration(
-                        color: AppColors.fourthColor,
-                        border: Border.all(color: AppColors.fourthColor),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const Text(
-                      'Red',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(right: 10),
-                    alignment: Alignment.center,
-                    height: 60,
-                    width: 90,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.fourthColor),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const Text(
-                      'Black',
-                      style: TextStyle(
-                          color: AppColors.fourthColor,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(right: 10),
-                    alignment: Alignment.center,
-                    height: 60,
-                    width: 90,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.fourthColor),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const Text(
-                      'Blue',
-                      style: TextStyle(
-                          color: AppColors.fourthColor,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
-              ),
+              const SubItemsColors(),
             ],
           ),
         )

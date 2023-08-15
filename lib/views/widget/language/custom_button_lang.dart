@@ -9,13 +9,16 @@ class CustomButtonLang extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 6),
       child: SizedBox(
         width: double.infinity,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 100),
           child: MaterialButton(
-            padding: const EdgeInsets.symmetric(vertical: 15),
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
             onPressed: onPressed,
             color: AppColors.primaryColor,
             textColor: Colors.white,
