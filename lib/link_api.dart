@@ -23,5 +23,7 @@ class AppLink {
 
 // ================================= items ========================== //
   static  String items = "$server/items";
+  static  String addItem = "$server/add_item";
+  static  String removeItem = "$server/remove_item";
   
 }

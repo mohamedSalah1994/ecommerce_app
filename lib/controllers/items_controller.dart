@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../core/class/status_request.dart';
 import '../core/functions/handling_data.dart';
+import '../core/services/services.dart';
 
 abstract class ItemsController extends GetxController {
   initialData();
@@ -19,10 +20,11 @@ class ItemsControllerImp extends ItemsController {
 
   int? catId;
   ItemData itemData = ItemData(Get.find());
-
+  MyServices myServices = Get.find();
   List items = [];
   List categories = [];
-
+ 
+   
   late StatusRequest statusRequest;
   @override
   void onInit() {
@@ -34,8 +36,10 @@ class ItemsControllerImp extends ItemsController {
   @override
   getData(categoryId) async {
     items.clear();
+      int? userId = myServices.sharedPreferences.getInt('id');
+    
     statusRequest = StatusRequest.loading;
-    var response = await itemData.getData(categoryId);
+    var response = await itemData.getData( userId! , categoryId);
     if (kDebugMode) {
       print("=============================== Controller $response ");
     }
@@ -68,8 +72,6 @@ class ItemsControllerImp extends ItemsController {
 
   @override
   goToItemsDetailsScreen(itemsModel) {
-    Get.toNamed(AppRoutes.itemsDetails , arguments: {
-      'itemsModel' : itemsModel
-    });
+    Get.toNamed(AppRoutes.itemsDetails, arguments: {'itemsModel': itemsModel});
   }
 }

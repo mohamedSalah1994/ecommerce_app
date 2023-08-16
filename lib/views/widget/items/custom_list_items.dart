@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/controllers/favorite_controller.dart';
 import 'package:ecommerce_app/controllers/items_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ import '../../../data/model/items_model.dart';
 
 class CustomListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
+
   const CustomListItems({Key? key, required this.itemsModel}) : super(key: key);
 
   @override
@@ -15,7 +17,6 @@ class CustomListItems extends GetView<ItemsControllerImp> {
     return InkWell(
         onTap: () {
           controller.goToItemsDetailsScreen(itemsModel);
-          
         },
         child: Card(
           child: Padding(
@@ -67,12 +68,26 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               fontFamily: "sans")),
-                      IconButton(
-                          onPressed: () {},
+                      GetBuilder<FavoriteControllerImp>(
+                        builder: (controller) => IconButton(
+                          onPressed: () {
+                            
+                            if (controller.isfavorite[itemsModel.id] == 1) {
+                              controller.setFavorite(itemsModel.id, 0);
+                              controller.removeItem(itemsModel.id);
+                            } else {
+                              controller.setFavorite(itemsModel.id, 1);
+                              controller.addItem(itemsModel.id);
+                            }
+                          },
                           icon: Icon(
-                            Icons.favorite,
+                            controller.isfavorite[itemsModel.id] == 1
+                                ? Icons.favorite
+                                : Icons.favorite_border_outlined,
                             color: AppColors.primaryColor,
-                          ))
+                          ),
+                        ),
+                      ),
                     ],
                   )
                 ]),

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/controllers/favorite_controller.dart';
 import 'package:ecommerce_app/controllers/items_controller.dart';
 import 'package:ecommerce_app/core/class/handling_data_view.dart';
 
@@ -16,6 +17,7 @@ class ItemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ItemsControllerImp());
+    FavoriteControllerImp favController = Get.put(FavoriteControllerImp());
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(15),
@@ -36,6 +38,8 @@ class ItemsScreen extends StatelessWidget {
                     childAspectRatio: 0.8,
                   ),
                   itemBuilder: (context, index) {
+                    favController.isfavorite[controller.items[index]['id']] =
+                        controller.items[index]['favorite'];
                     return CustomListItems(
                       itemsModel: ItemsModel.fromJson(controller.items[index]),
                     );

@@ -13,6 +13,7 @@ class ItemsModel {
   final String categoryName;
   final String categoryNameAr;
   final String categoryImage;
+   int? favorite;
 
   ItemsModel({
     required this.id,
@@ -29,6 +30,7 @@ class ItemsModel {
     required this.categoryName,
     required this.categoryNameAr,
     required this.categoryImage,
+     this.favorite,
   });
 
   factory ItemsModel.fromJson(Map<String, dynamic> json) {
@@ -47,6 +49,7 @@ class ItemsModel {
       categoryName: json['category_name'],
       categoryNameAr: json['category_name_ar'],
       categoryImage: json['category_image'],
+      favorite: json['favorite'],
     );
   }
 }
