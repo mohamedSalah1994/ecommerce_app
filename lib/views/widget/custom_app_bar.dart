@@ -1,7 +1,13 @@
+import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.titleAppbar, this.onPressedSearch, this.onPressedIcon});
+  const CustomAppBar(
+      {super.key,
+      required this.titleAppbar,
+      this.onPressedSearch,
+      this.onPressedIcon});
   final String titleAppbar;
   final void Function()? onPressedSearch;
   final void Function()? onPressedIcon;
@@ -41,6 +47,27 @@ class CustomAppBar extends StatelessWidget {
               onPressed: onPressedIcon,
               icon: Icon(
                 Icons.notifications_active_outlined,
+                size: 30,
+                color: Colors.grey[600],
+              ),
+            ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            width: 60,
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: IconButton(
+              onPressed: () {
+                Get.toNamed(AppRoutes.favorites);
+              },
+              icon: Icon(
+                Icons.favorite_border,
                 size: 30,
                 color: Colors.grey[600],
               ),

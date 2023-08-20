@@ -1,5 +1,5 @@
 class FavoriteItem {
-  final int userId;
+   int? userId;
   final int id;
   final String name;
   final String nameAr;
@@ -15,7 +15,7 @@ class FavoriteItem {
   final String updatedAt;
 
   FavoriteItem({
-    required this.userId,
+     this.userId,
     required this.id,
     required this.name,
     required this.nameAr,

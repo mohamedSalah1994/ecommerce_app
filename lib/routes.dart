@@ -8,6 +8,7 @@ import 'package:ecommerce_app/views/screen/auth/login_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/signup_screen.dart';
 import 'package:ecommerce_app/views/screen/auth/success_sign_up.dart';
 import 'package:ecommerce_app/views/screen/auth/verifycode_signup_screen.dart';
+import 'package:ecommerce_app/views/screen/favorites_screen.dart';
 import 'package:ecommerce_app/views/screen/home_screen_main.dart';
 import 'package:ecommerce_app/views/screen/items_details_screen.dart';
 import 'package:ecommerce_app/views/screen/items_screen.dart';
@@ -36,6 +37,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.home, page: () => const HomeScreenMain()),
   GetPage(name: AppRoutes.items, page: () => const ItemsScreen()),
    GetPage(name: AppRoutes.itemsDetails, page: () => const ItemsDetailsScreen()),
+   GetPage(name: AppRoutes.favorites, page: () => const FavoritesScreen()),
   GetPage(name: AppRoutes.serverException, page: () => const ServerExceptionScreen()),
 ];
 

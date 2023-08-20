@@ -1,9 +1,4 @@
-
-
-
-
 class AppLink {
-   
   static const String server = 'http://127.0.0.1:8000/api';
   static const String test = '$server/users';
 
@@ -22,8 +17,8 @@ class AppLink {
   static const String homePage = "$server/home";
 
 // ================================= items ========================== //
-  static  String items = "$server/items";
-  static  String addItem = "$server/add_item";
-  static  String removeItem = "$server/remove_item";
-  
+  static String items = "$server/items";
+  static String addItem = "$server/add_item";
+  static String removeItem = "$server/remove_item";
+  static String myFavorites = "$server/favorite_items";
 }
