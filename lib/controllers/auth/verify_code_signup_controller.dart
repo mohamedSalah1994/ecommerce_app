@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/data/datasource/remote/auth/verify_code_signup.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/class/status_request.dart';
 import '../../core/functions/handling_data.dart';
@@ -8,14 +9,14 @@ import '../../core/functions/handling_data.dart';
 abstract class VerifyCodeSignUpController extends GetxController {
   checkVerfyCode();
   goToSuccessSignUp(String verfiyCodeSignUp);
+  resendVerifyCode();
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
-  
   VerifyCodeSignUpData verifyCodeSignUpData = VerifyCodeSignUpData(Get.find());
   String? email;
-  
-   StatusRequest statusRequest = StatusRequest.none;
+
+  StatusRequest statusRequest = StatusRequest.none;
   @override
   checkVerfyCode() async {}
 
@@ -35,10 +36,9 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
         Get.offNamed(
           AppRoutes.successSignUp,
         );
-      } else  {
+      } else {
         Get.defaultDialog(
-            title: "ُWarning",
-            middleText: "Verify Code Not Correct");
+            title: "ُWarning", middleText: "Verify Code Not Correct");
         statusRequest = StatusRequest.failure;
       }
     }
@@ -48,9 +48,16 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   @override
   void onInit() {
     email = Get.arguments['email'];
-    
+
     super.onInit();
   }
 
-
+  @override
+  resendVerifyCode() {
+    verifyCodeSignUpData.resendData(email!);
+            Get.rawSnackbar(
+          title: "Notification",
+          messageText: const Text('verification code sent successfully'),
+        );
+  }
 }

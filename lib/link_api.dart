@@ -6,6 +6,7 @@ class AppLink {
   static const String signUp = "$server/store";
   static const String check = "$server/check";
   static const String login = "$server/login";
+   static const String resend = "$server/resend-verification-code";
 
 // ================================= ForgetPassword ========================== //
   static const String checkEmail = "$server/check_email";

@@ -29,7 +29,7 @@ class FavoriteControllerImp extends FavoriteController {
   addItem(itemId) async {
     statusRequest = StatusRequest.loading;
     int? userId = myServices.sharedPreferences.getInt('id');
-    var response = await favoriteData.addItem(userId! , itemId);
+    var response = await favoriteData.addItem(userId!, itemId);
     if (kDebugMode) {
       print("=============================== Controller $response ");
     }
@@ -37,8 +37,9 @@ class FavoriteControllerImp extends FavoriteController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            title: "اشعار",
-            messageText: const Text("تم اضافة المنتج من المفضلة "));
+          title: "اشعار",
+          messageText: const Text("تم اضافة المنتج من المفضلة "),
+        );
         statusRequest = StatusRequest.success;
       } else {
         statusRequest = StatusRequest.failure;
@@ -48,10 +49,10 @@ class FavoriteControllerImp extends FavoriteController {
   }
 
   @override
-  removeItem(itemId) async{
-        statusRequest = StatusRequest.loading;
+  removeItem(itemId) async {
+    statusRequest = StatusRequest.loading;
     int? userId = myServices.sharedPreferences.getInt('id');
-    var response = await favoriteData.removeItem(userId! , itemId);
+    var response = await favoriteData.removeItem(userId!, itemId);
     if (kDebugMode) {
       print("=============================== Controller $response ");
     }

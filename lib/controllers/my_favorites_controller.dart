@@ -1,9 +1,6 @@
-import 'package:ecommerce_app/data/datasource/remote/favorite_data.dart';
 import 'package:ecommerce_app/data/datasource/remote/my_favorite_data.dart';
 import 'package:flutter/foundation.dart';
-
 import 'package:get/get.dart';
-
 import '../core/class/status_request.dart';
 import '../core/functions/handling_data.dart';
 import '../core/services/services.dart';

@@ -53,13 +53,25 @@ class LoginControllerImp extends LoginController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
-          // data.addAll(response['data']);
-          myServices.sharedPreferences.setInt("id", response['user']['id']);
-          myServices.sharedPreferences.setString("name", response['user']['name']);
-          myServices.sharedPreferences.setString("email", response['user']['email']);
-          myServices.sharedPreferences.setString("phone", response['user']['phone']);
-          myServices.sharedPreferences.setString("step", '2');
-          Get.offNamed(AppRoutes.home);
+          if (response['data']['user_approve'] == true) {
+            // data.addAll(response['data']);
+            myServices.sharedPreferences
+                .setInt("id", response['data']['id']);
+            myServices.sharedPreferences
+                .setString("name", response['data']['name']);
+            myServices.sharedPreferences
+                .setString("email", response['data']['email']);
+            myServices.sharedPreferences
+                .setString("phone", response['data']['phone']);
+            myServices.sharedPreferences.setString("step", '2');
+            Get.offNamed(AppRoutes.home);
+          } else {
+            Get.toNamed(
+              AppRoutes.verifyCodeSignUp,
+              arguments: {"email": email.text},
+            );
+          }
+          
         } else if (response['status'] == "failure") {
           Get.defaultDialog(
               title: "ُWarning", middleText: "Wrong email or password");
