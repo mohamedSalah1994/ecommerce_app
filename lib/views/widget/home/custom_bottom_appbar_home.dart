@@ -35,8 +35,8 @@ class _CustomBottomAppbarHomeState extends State<CustomBottomAppbarHome> {
                 return index == 2
                     ? const Spacer()
                     : CustomButtonAppBar(
-                        iconData: controller.bottomAppbarIconsList[i],
-                        textButton: controller.titleBottomAppbarList[i],
+                        iconData: controller.bottomappbar[i]['icon'],
+                        textButton: controller.bottomappbar[i]['title'],
                         onPressed: () {
                           controller.changePage(i);
                         },

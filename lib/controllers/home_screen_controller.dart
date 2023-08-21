@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/views/screen/home_screen.dart';
+import 'package:ecommerce_app/views/screen/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,7 @@ class HomeScreenControllerImp extends HomeScreenController {
     const Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text('settings')],
+        children: [Text('notifications')],
       ),
     ),
     const Center(
@@ -23,19 +24,13 @@ class HomeScreenControllerImp extends HomeScreenController {
         children: [Text('person')],
       ),
     ),
-    const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text('favorites')],
-      ),
-    ),
+    const SettingsScreen()
   ];
-  List titleBottomAppbarList = ['Home', 'Settings', 'Profile', 'Favorite'];
-  List<IconData> bottomAppbarIconsList = [
-    Icons.home,
-    Icons.settings,
-    Icons.person,
-    Icons.favorite
+  List bottomappbar = [
+    {"title": "home", "icon": Icons.home},
+    {"title": "n", "icon": Icons.notifications_active_outlined},
+    {"title": "profile", "icon": Icons.person_pin_sharp},
+    {"title": "settings", "icon": Icons.settings}
   ];
 
   @override
