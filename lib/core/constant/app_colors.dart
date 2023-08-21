@@ -5,7 +5,7 @@ class AppColors {
   static Color grey2 = const Color.fromRGBO(97, 97, 97, 1);
   static Color primaryColor = const Color(0xffFF8E31);
   static const Color secondColor = Color(0xffc0392b);
-  static const Color thirdColor = Color.fromARGB(255, 255, 179, 170);
+  static const Color thirdColor = Color.fromARGB(255, 241, 197, 161);
   static const Color fourthColor = Color(0xff0d3056);
   static Color black = const Color(0xFF3B3A3A);
   static const Color backgroundcolor = Color(0xffF8F9FD);
