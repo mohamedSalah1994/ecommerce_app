@@ -9,9 +9,9 @@ class CustomBottomCartNavigationbar extends StatelessWidget {
       required this.price,
       required this.shipping,
       required this.total});
-  final double price;
-  final double shipping;
-  final double total;
+  final int price;
+  final int shipping;
+  final int total;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -71,7 +71,7 @@ class CustomBottomCartNavigationbar extends StatelessWidget {
             )
           ],
         ),
-        const CustomCartButton(title: 'Place Order')
+         CustomCartButton(title: 'Place Order' , onPressed: () {},)
       ],
     );
   }

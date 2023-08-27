@@ -4,6 +4,8 @@ import 'package:ecommerce_app/views/widget/home/custom_bottom_appbar_home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/constant/routes.dart';
+
 class HomeScreenMain extends StatelessWidget {
   const HomeScreenMain({super.key});
 
@@ -11,18 +13,19 @@ class HomeScreenMain extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeScreenControllerImp());
     return GetBuilder<HomeScreenControllerImp>(
-      
       builder: (controller) => Scaffold(
           floatingActionButton: FloatingActionButton(
             backgroundColor: AppColors.primaryColor,
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(AppRoutes.cart);
+            },
             child: const Icon(
               Icons.shopping_basket_outlined,
             ),
           ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
-           bottomNavigationBar: const CustomBottomAppbarHome(),
+          bottomNavigationBar: const CustomBottomAppbarHome(),
           body: controller.pagesList.elementAt(controller.currentPage)),
     );
   }

@@ -20,6 +20,9 @@ class AppRoutes {
   static const String items = '/items';
   static const String itemsDetails = '/itemsDetails';
    static const String favorites = '/favorites';
+   
+     //cart
+   static const String cart = '/cart';
 
 
   static const String serverException = '/serverException';

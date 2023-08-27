@@ -12,8 +12,6 @@ abstract class MyFavoritesController extends GetxController {
 
 class MyFavoritesControllerImp extends MyFavoritesController {
   MyFavoriteData myFavoriteData = MyFavoriteData(Get.find());
-  
-
   MyServices myServices = Get.find();
   List items = [];
   late StatusRequest statusRequest;

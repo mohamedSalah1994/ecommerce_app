@@ -22,4 +22,13 @@ class AppLink {
   static String addItem = "$server/add_item";
   static String removeItem = "$server/remove_item";
   static String myFavorites = "$server/favorite_items";
+
+  // ================================= items ========================== //
+  static String cart = "$server/cart";
+  static String addToCart = "$server/cart/add";
+  static String removeFromCart = "$server/cart/remove";
+  static String countItems = "$server/cart/item-quantity";
 }
+
+
+

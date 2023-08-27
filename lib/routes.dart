@@ -19,11 +19,14 @@ import 'package:ecommerce_app/views/screen/server_exception_screen.dart';
 
 import 'package:get/get.dart';
 
+import 'core/middleware/my_middleware.dart';
+import 'views/screen/language/language_screen.dart';
+
 List<GetPage<dynamic>>? routes = [
-  // GetPage(name: "/", page:() => const LanguageScreen() , middlewares: [
-  //   MyMiddleware()
-  // ]),
-   GetPage(name: "/", page:() => const CartScreen() ),
+  GetPage(name: "/", page:() => const LanguageScreen() , middlewares: [
+    MyMiddleware()
+  ]),
+    //  GetPage(name: "/", page:() => const CartScreen() ),
   
   GetPage(name: AppRoutes.login, page:() => const LoginScreen() ),
   GetPage(name: AppRoutes.signup, page:() =>  const SignUpScreen()),
@@ -36,6 +39,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.onboarding, page:() =>  const OnBoardingScreen()),
   GetPage(name: AppRoutes.home, page: () => const HomeScreenMain()),
   GetPage(name: AppRoutes.items, page: () => const ItemsScreen()),
+   GetPage(name: AppRoutes.cart, page: () => const CartScreen()),
    GetPage(name: AppRoutes.itemsDetails, page: () => const ItemsDetailsScreen()),
    GetPage(name: AppRoutes.favorites, page: () => const FavoritesScreen()),
   GetPage(name: AppRoutes.serverException, page: () => const ServerExceptionScreen()),

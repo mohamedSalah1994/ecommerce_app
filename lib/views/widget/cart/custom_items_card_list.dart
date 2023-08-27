@@ -3,10 +3,16 @@ import 'package:flutter/material.dart';
 import '../../../core/constant/app_colors.dart';
 
 class CustomItemsCardList extends StatelessWidget {
-  const CustomItemsCardList({super.key, required this.title, required this.price, required this.count});
+  const CustomItemsCardList(
+      {super.key,
+      required this.title,
+      required this.price,
+      required this.count, this.onAdd, this.onRemove});
   final String title;
-  final double price;
+  final int price;
   final String count;
+  final void Function()? onAdd;
+  final void Function()? onRemove;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -22,7 +28,7 @@ class CustomItemsCardList extends StatelessWidget {
           Expanded(
             flex: 3,
             child: ListTile(
-              title:  Text(title),
+              title: Text(title),
               subtitle: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Text(
@@ -39,7 +45,7 @@ class CustomItemsCardList extends StatelessWidget {
             child: Column(
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: onAdd,
                   child: const Icon(Icons.add),
                 ),
                 const SizedBox(height: 5),
@@ -49,7 +55,7 @@ class CustomItemsCardList extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 InkWell(
-                  onTap: () {},
+                  onTap: onRemove,
                   child: const Icon(Icons.remove),
                 ),
               ],
