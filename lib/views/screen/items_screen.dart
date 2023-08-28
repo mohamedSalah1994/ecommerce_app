@@ -10,26 +10,37 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../data/model/items_model.dart';
+import '../widget/search/list_items_search.dart';
 
 class ItemsScreen extends StatelessWidget {
   const ItemsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ItemsControllerImp());
+    ItemsControllerImp controller = Get.put(ItemsControllerImp(ItemsControllerImp));
     FavoriteControllerImp favController = Get.put(FavoriteControllerImp());
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(15),
         child: ListView(
           children: [
-            const CustomAppBar(titleAppbar: 'Find your product'),
+            CustomAppBar(
+              titleAppbar: 'Find your Product',
+              myController: controller.search,
+              onChanged: (val) {
+                controller.checkSearch(val);
+              },
+              onPressedSearch: () {
+                // controller.onSearchItems();
+              },
+            ),
             const SizedBox(height: 20),
             const ListCategoriesItems(),
             GetBuilder<ItemsControllerImp>(
               builder: (controller) => HandlingDataView(
                 statusRequest: controller.statusRequest,
-                widget: GridView.builder(
+                widget: !controller.isSearch ?
+                 GridView.builder(
                   itemCount: controller.items.length,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -44,7 +55,7 @@ class ItemsScreen extends StatelessWidget {
                       itemsModel: ItemsModel.fromJson(controller.items[index]),
                     );
                   },
-                ),
+                ) : ListItemsSearch(listDataModel: controller.listData) ,
               ),
             ),
           ],

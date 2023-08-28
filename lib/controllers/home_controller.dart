@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/controllers/search_controller.dart';
 import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/core/services/services.dart';
-import 'package:ecommerce_app/data/datasource/remote/home_data.dart';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:get/get.dart';
@@ -8,7 +10,9 @@ import 'package:get/get.dart';
 import '../core/class/status_request.dart';
 import '../core/functions/handling_data.dart';
 
-abstract class HomeController extends GetxController {
+abstract class HomeController extends SearchController {
+  HomeController(super.find);
+
   getData();
   goToItems(List categories, int selectedCat, int categoryId);
 }
@@ -18,12 +22,15 @@ class HomeControllerImp extends HomeController {
   String? name;
   int? id;
   String? lang;
-  HomeData homeData = HomeData(Get.find());
+ 
+  
 
   List items = [];
   List categories = [];
 
-  late StatusRequest statusRequest;
+
+
+  HomeControllerImp(super.find);
   @override
   getData() async {
     statusRequest = StatusRequest.loading;
@@ -51,6 +58,7 @@ class HomeControllerImp extends HomeController {
 
   @override
   void onInit() {
+    search = TextEditingController();
     initialData();
     getData();
     super.onInit();

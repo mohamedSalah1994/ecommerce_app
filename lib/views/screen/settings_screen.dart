@@ -8,7 +8,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SettingsController controller = Get.put(SettingsController());
+     Get.put(SettingsController());
     return Scaffold(
       body: ListView(
         children: [

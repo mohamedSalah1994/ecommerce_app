@@ -16,6 +16,7 @@ class AppLink {
 
 // ================================= Home ========================== //
   static const String homePage = "$server/home";
+   static const String search = "$server/search";
 
 // ================================= items ========================== //
   static String items = "$server/items";

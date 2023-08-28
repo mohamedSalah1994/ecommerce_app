@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/controllers/search_controller.dart';
 import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/data/datasource/remote/item_data.dart';
 import 'package:ecommerce_app/data/model/items_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +17,7 @@ abstract class ItemsController extends GetxController {
   goToItemsDetailsScreen(ItemsModel itemsModel);
 }
 
-class ItemsControllerImp extends ItemsController {
+class ItemsControllerImp extends SearchController {
   int? selectedCat;
 
   int? catId;
@@ -23,23 +25,21 @@ class ItemsControllerImp extends ItemsController {
   MyServices myServices = Get.find();
   List items = [];
   List categories = [];
- 
-   
-  late StatusRequest statusRequest;
+
+  ItemsControllerImp(super.find);
   @override
   void onInit() {
     initialData();
-
+    search = TextEditingController();
     super.onInit();
   }
 
-  @override
   getData(categoryId) async {
     items.clear();
-      int? userId = myServices.sharedPreferences.getInt('id');
-    
+    int? userId = myServices.sharedPreferences.getInt('id');
+
     statusRequest = StatusRequest.loading;
-    var response = await itemData.getData( userId! , categoryId);
+    var response = await itemData.getData(userId!, categoryId);
     if (kDebugMode) {
       print("=============================== Controller $response ");
     }
@@ -54,7 +54,6 @@ class ItemsControllerImp extends ItemsController {
     update();
   }
 
-  @override
   initialData() {
     categories = Get.arguments['categories'];
     selectedCat = Get.arguments['selectedCat'];
@@ -62,7 +61,6 @@ class ItemsControllerImp extends ItemsController {
     getData(catId!);
   }
 
-  @override
   changeCat(val, catVal) {
     selectedCat = val;
     catId = catVal;

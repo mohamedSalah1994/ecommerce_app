@@ -53,7 +53,7 @@ class LoginControllerImp extends LoginController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
-          if (response['data']['user_approve'] == true) {
+          if (response['data']['user_approve'] == 1) {
             // data.addAll(response['data']);
             myServices.sharedPreferences
                 .setInt("id", response['data']['id']);

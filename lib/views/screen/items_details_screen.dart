@@ -56,7 +56,7 @@ class ItemsDetailsScreen extends StatelessWidget {
                     const SizedBox(height: 10),
                     PriceAndCount(
                       count: '${controller.countitems}',
-                      price: 200.0,
+                      price: controller.itemsModel.price,
                       onAdd: () {
                         controller.add();
                       },

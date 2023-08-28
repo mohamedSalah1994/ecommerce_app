@@ -8,6 +8,7 @@ import '../core/services/services.dart';
 abstract class MyFavoritesController extends GetxController {
   getMyFavorites();
   removeItem(int itemId);
+
 }
 
 class MyFavoritesControllerImp extends MyFavoritesController {

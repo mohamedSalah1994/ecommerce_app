@@ -11,7 +11,7 @@ class PriceAndCount extends StatelessWidget {
   final void Function()? onAdd;
   final void Function()? onRemove;
   final String count;
-  final double price;
+  final int price;
   @override
   Widget build(BuildContext context) {
     return Row(
